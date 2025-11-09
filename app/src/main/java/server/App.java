@@ -11,5 +11,6 @@ public final class App {
         StyleCLI.intro();
         StyleCLI.score();
         StyleCLI.options();
+
     }
 }

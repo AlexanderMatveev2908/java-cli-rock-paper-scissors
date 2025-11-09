@@ -34,6 +34,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     // This dependency is used by the application.
     implementation(libs.guava)
+    implementation(libs.lombok)
 }
 //_e
 

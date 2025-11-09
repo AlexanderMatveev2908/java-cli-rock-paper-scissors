@@ -4,10 +4,19 @@
  * This generated file contains a sample Java application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.10.2/userguide/building_java_projects.html in the Gradle documentation.
  */
+import org.gradle.api.plugins.quality.Checkstyle
+import com.github.spotbugs.snom.SpotBugsTask
+import com.adarshr.gradle.testlogger.theme.ThemeType
+
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+
+    id("checkstyle")
+    id("pmd")
+    alias(libs.plugins.spotbugs)
+    alias(libs.plugins.testlogger)
 }
 
 repositories {
@@ -20,13 +29,12 @@ repositories {
 
 //_s
 dependencies {
-    // Use JUnit Jupiter for testing.
+// Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
-
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
     // This dependency is used by the application.
     implementation(libs.guava)
+    implementation(libs.lombok)
 }
 //_e
 
@@ -51,4 +59,42 @@ tasks.named<Jar>("jar") {
     manifest {
         attributes["Main-Class"] = "server.App"
     }
+}
+
+tasks.withType<Checkstyle> {
+    reports {
+        html.required.set(true)
+        html.outputLocation.set(layout.buildDirectory.file("reports/checkstyle/${name}.html"))
+    }
+}
+
+tasks.withType<Pmd> {
+    reports {
+        html.required.set(true)
+        html.outputLocation.set(layout.buildDirectory.file("reports/pmd/${name}.html"))
+    }
+}
+
+tasks.withType<SpotBugsTask> {
+    reports.create("html") {
+        required.set(true)
+        outputLocation.set(layout.buildDirectory.file("reports/spotbugs/${name}.html"))
+    }
+}
+
+tasks.named("check") {
+    dependsOn(tasks.withType<Checkstyle>())
+    dependsOn(tasks.withType<Pmd>())
+    dependsOn(tasks.withType<SpotBugsTask>())
+}
+
+testlogger {
+    theme = ThemeType.MOCHA
+    showPassed = true
+    showSkipped = false
+    showFailed = true
+    showExceptions = true
+    showCauses = true
+    showStandardStreams = true
+    showStackTraces = true
 }
