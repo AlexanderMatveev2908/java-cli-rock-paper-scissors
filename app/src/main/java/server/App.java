@@ -9,5 +9,7 @@ public final class App {
 
     public static void main(String[] args) {
         StyleCLI.intro();
+        StyleCLI.score();
+        StyleCLI.options();
     }
 }
