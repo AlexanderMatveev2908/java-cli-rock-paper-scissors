@@ -3,6 +3,7 @@
  */
 package server;
 
+import server.lib.DataCollector;
 import server.lib.StyleCLI;
 
 public final class App {
@@ -12,5 +13,6 @@ public final class App {
         StyleCLI.score();
         StyleCLI.options();
 
+        DataCollector.gameOpt();
     }
 }

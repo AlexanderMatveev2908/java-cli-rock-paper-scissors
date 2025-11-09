@@ -98,3 +98,7 @@ testlogger {
     showStandardStreams = true
     showStackTraces = true
 }
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}

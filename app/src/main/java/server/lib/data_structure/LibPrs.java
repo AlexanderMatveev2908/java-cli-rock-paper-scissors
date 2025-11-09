@@ -13,7 +13,9 @@ public class LibPrs {
     if (!LibShape.hasTxt(arg))
       return arg;
 
-    return Arrays.stream(arg.trim().split("\\s+"))
+    String[] words = arg.trim().split("\\s+");
+
+    return Arrays.stream(words)
         .map(w -> w.isEmpty() ? w : firstCharUpper(w))
         .collect(Collectors.joining(" "));
   }
