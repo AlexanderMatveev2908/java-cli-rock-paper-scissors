@@ -3,11 +3,11 @@
  */
 package server;
 
-import server.lib.CtxMoves;
-import server.lib.CtxScores;
 import server.lib.DataCollector;
 import server.lib.ManagerCLI;
 import server.lib.StyleCLI;
+import server.lib.contexts.CtxMoves;
+import server.lib.contexts.CtxScores;
 import server.paperwork.GameOpt;
 import server.paperwork.GameResT;
 

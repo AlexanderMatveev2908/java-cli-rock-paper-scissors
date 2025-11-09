@@ -1,4 +1,4 @@
-package server.lib;
+package server.lib.contexts;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
