@@ -31,7 +31,7 @@ public final class App {
         CtxMoves ctxMoves = new CtxMoves(userChoice, cpuChoice);
         GameResT winner = ctxMoves.getWinner();
 
-        LibLog.nextLine();
+        LibLog.emptyLine();
         StyleCLI.choices(ctxMoves);
         StyleCLI.feedbackResult(winner);
 

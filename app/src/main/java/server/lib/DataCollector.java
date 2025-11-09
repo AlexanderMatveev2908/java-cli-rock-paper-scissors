@@ -32,7 +32,7 @@ public final class DataCollector {
   }
 
   public static TerminalBoolT playAgain() {
-    LibLog.nextLine();
+    LibLog.emptyLine();
 
     System.out.println("Play again? y/n");
 

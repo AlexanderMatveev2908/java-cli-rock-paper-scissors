@@ -12,7 +12,7 @@ public final class ManagerCLI {
   private static final ThreadLocalRandom RAND = ThreadLocalRandom.current();
 
   public static void byeIfBored() {
-    LibLog.nextLine();
+    LibLog.emptyLine();
     System.out.println("✌🏼 bye");
     System.exit(0);
   }

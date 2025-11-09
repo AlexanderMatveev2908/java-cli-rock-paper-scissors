@@ -13,6 +13,8 @@ public final class StyleCLI {
   private static final String space = (" ".repeat(3));
 
   public static void intro() {
+    LibLog.afterLines();
+
     StringBuilder sb = new StringBuilder();
 
     sb.append(
@@ -27,7 +29,7 @@ public final class StyleCLI {
   }
 
   public static void score(CtxScores ctx) {
-    LibLog.nextLine();
+    LibLog.emptyLine();
 
     System.out.println("😎 user -> " + ctx.getUser());
     System.out.println("💾 cpu -> " + ctx.getCpu());
@@ -35,7 +37,7 @@ public final class StyleCLI {
   }
 
   public static void options() {
-    LibLog.nextLine();
+    LibLog.emptyLine();
 
     GameOptT[] opt = GameOptT.values();
 
