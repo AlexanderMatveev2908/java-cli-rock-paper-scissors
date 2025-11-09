@@ -12,4 +12,4 @@
 
 # ? java_pkg_cli is just a custom CLI tool for development
 # ? that does not influence behavior of main java tool
-java_pkg_cli/* linguist-vendored
+/java_pkg_cli/* linguist-vendored
