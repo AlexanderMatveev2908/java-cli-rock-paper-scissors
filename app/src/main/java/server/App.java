@@ -3,8 +3,11 @@
  */
 package server;
 
-public class App {
+import server.lib.StyleCLI;
+
+public final class App {
 
     public static void main(String[] args) {
+        StyleCLI.intro();
     }
 }

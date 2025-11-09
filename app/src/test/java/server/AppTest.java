@@ -3,6 +3,14 @@
  */
 package server;
 
-class AppTest {
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Test;
+
+class AppTest {
+  @Test
+  public void def() {
+    System.out.println("run a default test to avoid deprecation warning when an app has no tests");
+    assertTrue(true);
+  }
 }

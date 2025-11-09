@@ -6,6 +6,7 @@
  */
 import org.gradle.api.plugins.quality.Checkstyle
 import com.github.spotbugs.snom.SpotBugsTask
+import com.adarshr.gradle.testlogger.theme.ThemeType
 
 
 plugins {
@@ -15,6 +16,7 @@ plugins {
     id("checkstyle")
     id("pmd")
     alias(libs.plugins.spotbugs)
+    alias(libs.plugins.testlogger)
 }
 
 repositories {
@@ -83,4 +85,15 @@ tasks.named("check") {
     dependsOn(tasks.withType<Checkstyle>())
     dependsOn(tasks.withType<Pmd>())
     dependsOn(tasks.withType<SpotBugsTask>())
+}
+
+testlogger {
+    theme = ThemeType.MOCHA
+    showPassed = true
+    showSkipped = false
+    showFailed = true
+    showExceptions = true
+    showCauses = true
+    showStandardStreams = true
+    showStackTraces = true
 }
