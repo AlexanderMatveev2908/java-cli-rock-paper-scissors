@@ -56,13 +56,9 @@ public final class StyleCLI {
 
     StringBuilder sb = new StringBuilder();
 
-    if (arg.equals(GameResT.US))
-      sb.append("You win ");
-    else if (arg.equals(GameResT.CPU))
-      sb.append("CPU win ");
-    else
-      sb.append("Tie ");
-
+    sb.append(arg.getLabel() + " ");
+    if (!arg.equals(GameResT.T))
+      sb.append("win ");
     sb.append(arg.getEmj());
 
     System.out.println(sb.toString());

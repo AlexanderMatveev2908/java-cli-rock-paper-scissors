@@ -6,12 +6,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum GameResT {
-  US("US", "🎉", "user"),
-  CPU("CPU", "👻", "cpu"),
-  T("T", "🤝", "tie");
+  US("US", "🎉", "User"),
+  CPU("CPU", "👻", "CPU"),
+  T("T", "🤝", "Tie");
 
   private final String val;
   private final String emj;
-  private final String txt;
+  private final String label;
 
 }
