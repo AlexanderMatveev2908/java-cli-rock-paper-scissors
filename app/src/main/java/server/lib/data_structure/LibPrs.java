@@ -3,7 +3,7 @@ package server.lib.data_structure;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class LibPrs {
+public final class LibPrs {
 
   public static String firstCharUpper(String arg) {
     return arg.substring(0, 1).toUpperCase() + arg.substring(1).toLowerCase();

@@ -1,5 +1,10 @@
 package server.paperwork;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Getter
 public enum GameOpt {
     ROCK("R", "✊", "rock"),
     PAPER("P", "🖐️", "paper"),
@@ -10,21 +15,4 @@ public enum GameOpt {
     private final String emj;
     private final String txt;
 
-    GameOpt(String val, String emj, String txt) {
-        this.emj = emj;
-        this.val = val;
-        this.txt = txt;
-    }
-
-    public String getVal() {
-        return val;
-    }
-
-    public String getEmoji() {
-        return emj;
-    }
-
-    public String getTxt() {
-        return txt;
-    }
 }

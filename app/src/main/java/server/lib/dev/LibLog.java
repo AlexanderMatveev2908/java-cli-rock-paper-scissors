@@ -1,6 +1,6 @@
 package server.lib.dev;
 
-public class LibLog {
+public final class LibLog {
   public static void nextLine() {
     System.out.println();
   }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import server.lib.dev.ErrApp;
 import server.paperwork.GameOpt;
 
-public class DataCollector {
+public final class DataCollector {
   private static final Scanner SC = new Scanner(System.in, StandardCharsets.UTF_8);
 
   public static GameOpt gameOpt() {

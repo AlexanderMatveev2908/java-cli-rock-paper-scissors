@@ -3,16 +3,34 @@
  */
 package server;
 
+import server.lib.CtxMoves;
+import server.lib.CtxScores;
 import server.lib.DataCollector;
+import server.lib.ManagerCLI;
 import server.lib.StyleCLI;
+import server.paperwork.GameOpt;
+import server.paperwork.GameResT;
 
 public final class App {
+    private final static CtxScores ctxScores = new CtxScores(0, 0, 0);
 
     public static void main(String[] args) {
+
         StyleCLI.intro();
-        StyleCLI.score();
+        StyleCLI.score(ctxScores);
         StyleCLI.options();
 
-        DataCollector.gameOpt();
+        GameOpt userChoice = DataCollector.gameOpt();
+        if (userChoice.equals(GameOpt.EXIT))
+            ManagerCLI.byeIfBored();
+
+        GameOpt cpuChoice = ManagerCLI.cpuMove();
+
+        CtxMoves ctxMoves = new CtxMoves(userChoice, cpuChoice);
+        GameResT winner = ctxMoves.getWinner();
+
+        StyleCLI.feedbackResult(winner);
+        ManagerCLI.assignPoints(ctxScores, winner);
+        StyleCLI.score(ctxScores);
     }
 }

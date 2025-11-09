@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 import server.lib.data_structure.LibShape;
 
-public class Reg {
+public final class Reg {
   private static final Pattern EMJ = Pattern.compile("^\\s*[\\p{So}\\p{Cn}].*");
 
   private static boolean fullMatch(String arg, Pattern reg) {

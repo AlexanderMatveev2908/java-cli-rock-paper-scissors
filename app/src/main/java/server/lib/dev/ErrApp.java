@@ -4,7 +4,7 @@ import lombok.Getter;
 import server.paperwork.Reg;
 
 @Getter
-public class ErrApp extends RuntimeException {
+public final class ErrApp extends RuntimeException {
   private final String msg;
   private final int code;
 
