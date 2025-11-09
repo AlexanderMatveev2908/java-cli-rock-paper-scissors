@@ -1,6 +1,7 @@
 package server.lib;
 
 import server.lib.data_structure.LibPrs;
+import server.lib.dev.LibLog;
 import server.paperwork.GameOpt;
 
 public final class StyleCLI {
@@ -22,7 +23,8 @@ public final class StyleCLI {
   }
 
   public static void score(int userScore, int cpuScore) {
-    System.out.println();
+    LibLog.nextLine();
+
     System.out.println("😎 user -> " + userScore);
     System.out.println("💾 cpu -> " + userScore);
   }
@@ -32,6 +34,8 @@ public final class StyleCLI {
   }
 
   public static void options() {
+    LibLog.nextLine();
+
     GameOpt[] opt = GameOpt.values();
 
     for (int i = 0; i < opt.length; i++) {
