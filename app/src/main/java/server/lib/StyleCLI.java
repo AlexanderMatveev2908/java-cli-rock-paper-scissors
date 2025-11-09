@@ -1,5 +1,6 @@
 package server.lib;
 
+import server.lib.contexts.CtxMoves;
 import server.lib.contexts.CtxScores;
 import server.lib.data_structure.LibPrs;
 import server.lib.dev.LibLog;
@@ -9,6 +10,7 @@ import server.paperwork.GameResT;
 public final class StyleCLI {
 
   private static final String side = "=".repeat(5);
+  private static final String space = (" ".repeat(3));
 
   public static void intro() {
     StringBuilder sb = new StringBuilder();
@@ -45,16 +47,27 @@ public final class StyleCLI {
       sb.append(". ");
       sb.append(curr.getEmj());
       sb.append(" -> ");
-      sb.append(LibPrs.firstCharUpper(curr.getTxt()));
+      sb.append(LibPrs.firstCharUpper(curr.getLabel()));
 
       String str = sb.toString();
       System.out.println(str);
     }
   }
 
-  public static void feedbackResult(GameResT arg) {
-    LibLog.nextLine();
+  public static void choices(CtxMoves ctx) {
+    StringBuilder sb = new StringBuilder();
 
+    sb.append("user -> " + ctx.user().getEmj());
+    sb.append(space);
+    sb.append("vs");
+    sb.append(space);
+    sb.append("CPU -> ");
+    sb.append(ctx.cpu().getEmj());
+
+    System.out.println(sb.toString());
+  }
+
+  public static void feedbackResult(GameResT arg) {
     StringBuilder sb = new StringBuilder();
 
     sb.append(arg.getLabel() + " ");

@@ -8,6 +8,7 @@ import server.lib.ManagerCLI;
 import server.lib.StyleCLI;
 import server.lib.contexts.CtxMoves;
 import server.lib.contexts.CtxScores;
+import server.lib.dev.LibLog;
 import server.paperwork.GameOpt;
 import server.paperwork.GameResT;
 
@@ -29,7 +30,10 @@ public final class App {
         CtxMoves ctxMoves = new CtxMoves(userChoice, cpuChoice);
         GameResT winner = ctxMoves.getWinner();
 
+        LibLog.nextLine();
+        StyleCLI.choices(ctxMoves);
         StyleCLI.feedbackResult(winner);
+
         ManagerCLI.assignPoints(ctxScores, winner);
         StyleCLI.score(ctxScores);
     }

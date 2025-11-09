@@ -6,13 +6,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum GameOpt {
-    ROCK("R", "✊", "rock"),
-    PAPER("P", "🖐️", "paper"),
-    SCISSORS("S", "✌️", "scissors"),
-    EXIT("_", "👋", "exit");
+    ROCK("R", "✊", "Rock"),
+    PAPER("P", "🖐️", "Paper"),
+    SCISSORS("S", "✌️", "Scissors"),
+    EXIT("_", "👋", "Exit");
 
     private final String val;
     private final String emj;
-    private final String txt;
+    private final String label;
 
 }
