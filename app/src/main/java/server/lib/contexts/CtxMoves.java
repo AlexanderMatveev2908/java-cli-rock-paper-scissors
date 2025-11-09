@@ -2,10 +2,10 @@ package server.lib.contexts;
 
 import java.util.Map;
 
-import server.paperwork.GameOpt;
+import server.paperwork.GameOptT;
 import server.paperwork.GameResT;
 
-public final record CtxMoves(GameOpt user, GameOpt cpu) {
+public final record CtxMoves(GameOptT user, GameOptT cpu) {
 
   private static final Map<String, String> mapWins = Map.of("R", "S", "S", "P", "P", "R");
 

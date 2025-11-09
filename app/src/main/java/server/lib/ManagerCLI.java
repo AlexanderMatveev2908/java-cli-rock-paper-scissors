@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import server.lib.contexts.CtxScores;
 import server.lib.dev.LibLog;
-import server.paperwork.GameOpt;
+import server.paperwork.GameOptT;
 import server.paperwork.GameResT;
 
 public final class ManagerCLI {
@@ -17,9 +17,9 @@ public final class ManagerCLI {
     System.exit(0);
   }
 
-  public static GameOpt cpuMove() {
+  public static GameOptT cpuMove() {
     int randomIdx = RAND.nextInt(0, 2);
-    return GameOpt.values()[randomIdx];
+    return GameOptT.values()[randomIdx];
   }
 
   public static void assignPoints(CtxScores ctx, GameResT winner) {
@@ -30,4 +30,5 @@ public final class ManagerCLI {
     else
       ctx.setTie(ctx.getTie() + 1);
   }
+
 }

@@ -4,7 +4,7 @@ import server.lib.contexts.CtxMoves;
 import server.lib.contexts.CtxScores;
 import server.lib.data_structure.LibPrs;
 import server.lib.dev.LibLog;
-import server.paperwork.GameOpt;
+import server.paperwork.GameOptT;
 import server.paperwork.GameResT;
 
 public final class StyleCLI {
@@ -37,10 +37,10 @@ public final class StyleCLI {
   public static void options() {
     LibLog.nextLine();
 
-    GameOpt[] opt = GameOpt.values();
+    GameOptT[] opt = GameOptT.values();
 
     for (int i = 0; i < opt.length; i++) {
-      GameOpt curr = opt[i];
+      GameOptT curr = opt[i];
 
       StringBuilder sb = new StringBuilder();
       sb.append(i + 1);
@@ -57,12 +57,12 @@ public final class StyleCLI {
   public static void choices(CtxMoves ctx) {
     StringBuilder sb = new StringBuilder();
 
-    sb.append("user -> " + ctx.user().getEmj());
+    sb.append("user " + ctx.user().getEmj());
     sb.append(space);
     sb.append("vs");
     sb.append(space);
-    sb.append("CPU -> ");
     sb.append(ctx.cpu().getEmj());
+    sb.append(" CPU");
 
     System.out.println(sb.toString());
   }

@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public enum GameOpt {
+public enum GameOptT {
     ROCK("R", "✊", "Rock"),
     PAPER("P", "🖐️", "Paper"),
     SCISSORS("S", "✌️", "Scissors"),

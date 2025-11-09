@@ -9,8 +9,9 @@ import server.lib.StyleCLI;
 import server.lib.contexts.CtxMoves;
 import server.lib.contexts.CtxScores;
 import server.lib.dev.LibLog;
-import server.paperwork.GameOpt;
+import server.paperwork.GameOptT;
 import server.paperwork.GameResT;
+import server.paperwork.TerminalBoolT;
 
 public final class App {
     private final static CtxScores ctxScores = new CtxScores(0, 0, 0);
@@ -21,11 +22,11 @@ public final class App {
         StyleCLI.score(ctxScores);
         StyleCLI.options();
 
-        GameOpt userChoice = DataCollector.gameOpt();
-        if (userChoice.equals(GameOpt.EXIT))
+        GameOptT userChoice = DataCollector.gameOpt();
+        if (userChoice.equals(GameOptT.EXIT))
             ManagerCLI.byeIfBored();
 
-        GameOpt cpuChoice = ManagerCLI.cpuMove();
+        GameOptT cpuChoice = ManagerCLI.cpuMove();
 
         CtxMoves ctxMoves = new CtxMoves(userChoice, cpuChoice);
         GameResT winner = ctxMoves.getWinner();
@@ -35,6 +36,12 @@ public final class App {
         StyleCLI.feedbackResult(winner);
 
         ManagerCLI.assignPoints(ctxScores, winner);
-        StyleCLI.score(ctxScores);
+
+        TerminalBoolT ch = DataCollector.playAgain();
+
+        if (ch.equals(TerminalBoolT.NO))
+            ManagerCLI.byeIfBored();
+        else
+            main(args);
     }
 }
