@@ -1,7 +1,7 @@
 package server.lib.data_structure;
 
 public final class LibShape {
-  public static boolean hasTxt(String arg) {
+  public static final boolean hasTxt(String arg) {
     return arg != null && !arg.isBlank();
   }
 }

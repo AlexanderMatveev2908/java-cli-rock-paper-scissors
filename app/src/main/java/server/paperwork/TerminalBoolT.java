@@ -13,7 +13,7 @@ public enum TerminalBoolT {
 
   private final String val;
 
-  public static TerminalBoolT fromStr(String arg) {
+  public static final TerminalBoolT fromStr(String arg) {
     if (LibShape.hasTxt(arg))
       return java.util.Arrays.stream(TerminalBoolT.values())
           .filter(v -> v.getVal().equalsIgnoreCase(arg))

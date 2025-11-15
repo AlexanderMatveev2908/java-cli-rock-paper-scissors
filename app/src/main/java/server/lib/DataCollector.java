@@ -10,11 +10,11 @@ import server.paperwork.TerminalBoolT;
 public final class DataCollector {
   private static final Scanner SC = new Scanner(System.in, StandardCharsets.UTF_8);
 
-  public static GameOptT gameOpt() {
+  public static final GameOptT gameOpt() {
     while (true) {
       System.out.print("choose your move: ");
 
-      String ch = SC.nextLine().trim();
+      final String ch = SC.nextLine().trim();
 
       switch (ch) {
         case "1":
@@ -31,13 +31,13 @@ public final class DataCollector {
     }
   }
 
-  public static TerminalBoolT playAgain() {
+  public static final TerminalBoolT playAgain() {
     LibLog.emptyLine();
 
     System.out.println("Play again? y/n");
 
     while (true) {
-      String ch = SC.nextLine().strip().toLowerCase();
+      final String ch = SC.nextLine().strip().toLowerCase();
 
       try {
         return TerminalBoolT.fromStr(ch);

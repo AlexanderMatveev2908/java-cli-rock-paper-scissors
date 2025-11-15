@@ -1,15 +1,15 @@
 package server.lib.dev;
 
 public final class LibLog {
-  public static void emptyLine() {
+  public static final void emptyLine() {
     System.out.println();
   }
 
-  public static void emptyTab() {
+  public static final void emptyTab() {
     System.out.println("\t");
   }
 
-  public static void afterLines() {
+  public static final void afterLines() {
     System.out.println("\n");
   }
 }

@@ -18,12 +18,12 @@ public final class ErrApp extends RuntimeException {
     this(msg, 500);
   }
 
-  public static void stdErr(String arg) {
+  public static final void stdErr(String arg) {
     String emj = Reg.hasEmj(arg) ? "" : "❌ ";
     System.err.println(emj + arg);
   }
 
-  public static void andExit(String arg) {
+  public static final void andExit(String arg) {
     stdErr(arg);
     System.exit(1);
   }

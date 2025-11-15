@@ -16,28 +16,27 @@ import server.paperwork.TerminalBoolT;
 public final class App {
     private final static CtxScores ctxScores = new CtxScores(0, 0, 0);
 
-    public static void main(String[] args) {
+    public static final void main(String[] args) {
 
         StyleCLI.intro();
         StyleCLI.score(ctxScores);
         StyleCLI.options();
 
-        GameOptT userChoice = DataCollector.gameOpt();
+        final GameOptT userChoice = DataCollector.gameOpt();
         if (userChoice.equals(GameOptT.EXIT))
             ManagerCLI.byeIfBored();
 
-        GameOptT cpuChoice = ManagerCLI.cpuMove();
+        final GameOptT cpuChoice = ManagerCLI.cpuMove();
 
-        CtxMoves ctxMoves = new CtxMoves(userChoice, cpuChoice);
-        GameResT winner = ctxMoves.getWinner();
+        final CtxMoves ctxMoves = new CtxMoves(userChoice, cpuChoice);
+        final GameResT winner = ctxMoves.getWinner();
 
         LibLog.emptyLine();
         StyleCLI.choices(ctxMoves);
         StyleCLI.feedbackResult(winner);
 
         ManagerCLI.assignPoints(ctxScores, winner);
-
-        TerminalBoolT ch = DataCollector.playAgain();
+        final TerminalBoolT ch = DataCollector.playAgain();
 
         if (ch.equals(TerminalBoolT.NO))
             ManagerCLI.byeIfBored();

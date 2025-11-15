@@ -12,10 +12,10 @@ public final class StyleCLI {
   private static final String side = "=".repeat(5);
   private static final String space = (" ".repeat(3));
 
-  public static void intro() {
+  public static final void intro() {
     LibLog.afterLines();
 
-    StringBuilder sb = new StringBuilder();
+    final StringBuilder sb = new StringBuilder();
 
     sb.append(
         side);
@@ -23,12 +23,12 @@ public final class StyleCLI {
     sb.append(
         side);
 
-    String str = sb.toString();
+    final String str = sb.toString();
 
     System.out.println(str);
   }
 
-  public static void score(CtxScores ctx) {
+  public static final void score(CtxScores ctx) {
     LibLog.emptyLine();
 
     System.out.println("😎 user -> " + ctx.getUser());
@@ -36,28 +36,28 @@ public final class StyleCLI {
     System.out.println("🤝 tie -> " + ctx.getTie());
   }
 
-  public static void options() {
+  public static final void options() {
     LibLog.emptyLine();
 
-    GameOptT[] opt = GameOptT.values();
+    final GameOptT[] opt = GameOptT.values();
 
     for (int i = 0; i < opt.length; i++) {
-      GameOptT curr = opt[i];
+      final GameOptT curr = opt[i];
 
-      StringBuilder sb = new StringBuilder();
+      final StringBuilder sb = new StringBuilder();
       sb.append(i + 1);
       sb.append(". ");
       sb.append(curr.getEmj());
       sb.append(" -> ");
       sb.append(LibPrs.firstCharUpper(curr.getLabel()));
 
-      String str = sb.toString();
+      final String str = sb.toString();
       System.out.println(str);
     }
   }
 
-  public static void choices(CtxMoves ctx) {
-    StringBuilder sb = new StringBuilder();
+  public static final void choices(CtxMoves ctx) {
+    final StringBuilder sb = new StringBuilder();
 
     sb.append("user " + ctx.user().getEmj());
     sb.append(space);
@@ -69,8 +69,8 @@ public final class StyleCLI {
     System.out.println(sb.toString());
   }
 
-  public static void feedbackResult(GameResT arg) {
-    StringBuilder sb = new StringBuilder();
+  public static final void feedbackResult(GameResT arg) {
+    final StringBuilder sb = new StringBuilder();
 
     sb.append(arg.getLabel() + " ");
     if (!arg.equals(GameResT.T))

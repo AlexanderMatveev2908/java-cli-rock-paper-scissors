@@ -11,18 +11,18 @@ public final class ManagerCLI {
 
   private static final ThreadLocalRandom RAND = ThreadLocalRandom.current();
 
-  public static void byeIfBored() {
+  public static final void byeIfBored() {
     LibLog.emptyLine();
     System.out.println("✌🏼 bye");
     System.exit(0);
   }
 
-  public static GameOptT cpuMove() {
-    int randomIdx = RAND.nextInt(0, 2);
+  public static final GameOptT cpuMove() {
+    final int randomIdx = RAND.nextInt(0, 2);
     return GameOptT.values()[randomIdx];
   }
 
-  public static void assignPoints(CtxScores ctx, GameResT winner) {
+  public static final void assignPoints(CtxScores ctx, GameResT winner) {
     if (winner.equals(GameResT.US))
       ctx.setUser(ctx.getUser() + 1);
     else if (winner.equals(GameResT.CPU))

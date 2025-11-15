@@ -9,7 +9,7 @@ public final record CtxMoves(GameOptT user, GameOptT cpu) {
 
   private static final Map<String, String> mapWins = Map.of("R", "S", "S", "P", "P", "R");
 
-  public GameResT getWinner() {
+  public final GameResT getWinner() {
 
     if (mapWins.get(user.getVal()).equals(cpu.getVal()))
       return GameResT.US;
